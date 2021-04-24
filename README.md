@@ -2,6 +2,12 @@
 
 An easy way to measure execution time of Python functions using decorators.
 
+## Installation
+
+```bash
+pip install timedfunc
+```
+
 ## Example
 
 ```python
