@@ -38,6 +38,33 @@ import sys
 import os
 
 #-------------------------------------------------------------------------------
+# variables
+#-------------------------------------------------------------------------------
+#
+timing_stats = []
+
+#-------------------------------------------------------------------------------
+# API
+#-------------------------------------------------------------------------------
+#
+def timedfunc(func):
+	if not get_param("enabled"):
+		# disabled -> act as identity decorator
+		return func
+	# end if
+	timing_stat = Stat(func.__qualname__)
+	timing_stats.append(timing_stat)
+	@wraps(func)
+	def wrapper(*args, **kwargs):
+		start_time = timer()
+		result = func(*args, **kwargs)
+		timing_stat.update(timer() - start_time)
+		return result
+	return wrapper
+# end function
+
+
+#-------------------------------------------------------------------------------
 # helpers
 #-------------------------------------------------------------------------------
 #
@@ -133,32 +160,6 @@ def print_stats():
 		out.write(hrule + '\n')
 		out.flush()
 	# end for
-# end function
-
-#-------------------------------------------------------------------------------
-# variables
-#-------------------------------------------------------------------------------
-#
-timing_stats = []
-
-#-------------------------------------------------------------------------------
-# API
-#-------------------------------------------------------------------------------
-#
-def timedfunc(func):
-	if not get_param("enabled"):
-		# disabled -> act as identity decorator
-		return func
-	# end if
-	timing_stat = Stat(func.__qualname__)
-	timing_stats.append(timing_stat)
-	@wraps(func)
-	def wrapper(*args, **kwargs):
-		start_time = timer()
-		result = func(*args, **kwargs)
-		timing_stat.update(timer() - start_time)
-		return result
-	return wrapper
 # end function
 
 #-------------------------------------------------------------------------------
