@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 #-------------------------------------------------------------------------------
 """
+	Measures execution time of Python functions using decorators.
+
     @license
     Copyright (c) Daniel Pauli <dapaulid@gmail.com>
 
@@ -14,8 +16,7 @@
 # package info
 #-------------------------------------------------------------------------------
 #
-"""Measures execution time of python functions using decorators"""
-__version__ = '1.1'
+__version__ = '1.1.0'
 
 #-------------------------------------------------------------------------------
 # default values
