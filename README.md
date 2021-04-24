@@ -1,3 +1,5 @@
+[![pypi](https://img.shields.io/pypi/v/timedfunc)](https://pypi.org/project/timedfunc)
+
 # timedfunc
 
 An easy way to measure execution time of Python functions using decorators.
