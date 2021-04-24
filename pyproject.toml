@@ -8,4 +8,4 @@ author = "Daniel Pauli"
 author-email = "dapaulid@gmail.com"
 home-page = "https://github.com/dapaulid/timedfunc"
 classifiers = [ "License :: OSI Approved :: MIT License",]
-
+description-file = "README.md"
